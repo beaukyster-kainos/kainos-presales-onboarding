@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kainos Americas Pre-Sales — Onboarding</title>
+<style>
+  :root {
+    --kainos-blue: #283583;
+    --kainos-green: #61a83f;
+    --mid-blue: #41679f;
+    --dark-green: #004631;
+    --grey: #575756;
+    --light-grey: #f4f4f6;
+    --border: #e2e4ea;
+    --orange: #ec6608;
+    --bright-blue: #009fe3;
+    --bright-green: #cfd600;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Galano Grotesque", "Century Gothic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1a1a1a;
+    background: var(--white);
+    line-height: 1.55;
+  }
+  header.hero {
+    background: linear-gradient(135deg, var(--kainos-green) 0%, var(--kainos-blue) 100%);
+    color: var(--white);
+    padding: 64px 32px 56px;
+  }
+  header.hero .wrap { max-width: 1080px; margin: 0 auto; }
+  header.hero .eyebrow {
+    font-family: "Foundry Gridnik", "Century Gothic", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 14px;
+  }
+  header.hero h1 {
+    margin: 0 0 12px;
+    font-size: 44px;
+    line-height: 1.1;
+    font-weight: 700;
+  }
+  header.hero p { font-size: 18px; max-width: 720px; opacity: 0.95; margin: 0; }
+  nav.top {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav.top .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 12px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-size: 14px;
+  }
+  nav.top a {
+    color: var(--kainos-blue);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 4px 0;
+  }
+  nav.top a:hover { color: var(--kainos-green); }
+  main { max-width: 1080px; margin: 0 auto; padding: 48px 32px 96px; }
+  section { margin-bottom: 56px; scroll-margin-top: 64px; }
+  h2 {
+    font-size: 28px;
+    color: var(--kainos-blue);
+    margin: 0 0 6px;
+    border-bottom: 3px solid var(--kainos-green);
+    padding-bottom: 8px;
+    display: inline-block;
+  }
+  h2 .num {
+    font-family: "Foundry Gridnik", "Century Gothic", sans-serif;
+    color: var(--kainos-green);
+    margin-right: 10px;
+  }
+  h3 { color: var(--kainos-blue); margin-top: 28px; margin-bottom: 6px; }
+  .lede { font-size: 17px; color: var(--grey); margin: 10px 0 24px; max-width: 760px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--kainos-green);
+    border-radius: 6px;
+    padding: 18px 20px;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(40,53,131,0.12);
+    transform: translateY(-1px);
+  }
+  .card h4 {
+    margin: 0 0 6px;
+    color: var(--kainos-blue);
+    font-size: 16px;
+  }
+  .card p { margin: 0; font-size: 14px; color: #333; }
+  .card .meta {
+    font-family: "Foundry Gridnik", "Century Gothic", sans-serif;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--grey);
+    margin-bottom: 6px;
+  }
+  .card.blue { border-left-color: var(--kainos-blue); }
+  .card.orange { border-left-color: var(--orange); }
+  .callout {
+    background: var(--light-grey);
+    border-left: 4px solid var(--kainos-blue);
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin: 20px 0;
+  }
+  .callout strong { color: var(--kainos-blue); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    background: var(--light-grey);
+    color: var(--kainos-blue);
+    font-family: "Foundry Gridnik", "Century Gothic", sans-serif;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+  .pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-family: "Foundry Gridnik", "Century Gothic", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-right: 6px;
+  }
+  .pill.client-safe { background: #e8f3df; color: var(--dark-green); }
+  .pill.internal { background: #fbe6d6; color: var(--orange); }
+  .pill.wip { background: #fef6c7; color: #7a5d00; }
+  ol.path { padding-left: 0; counter-reset: step; list-style: none; }
+  ol.path li {
+    counter-increment: step;
+    padding: 16px 20px 16px 64px;
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    background: var(--white);
+  }
+  ol.path li::before {
+    content: counter(step);
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    background: linear-gradient(135deg, var(--kainos-green), var(--kainos-blue));
+    color: var(--white);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: "Foundry Gridnik", "Century Gothic", sans-serif;
+  }
+  ol.path li strong { color: var(--kainos-blue); display: block; margin-bottom: 4px; }
+  dl.glossary { display: grid; grid-template-columns: 160px 1fr; gap: 10px 24px; }
+  dl.glossary dt { font-weight: 700; color: var(--kainos-blue); }
+  dl.glossary dd { margin: 0; }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 32px;
+    text-align: center;
+    color: var(--grey);
+    font-size: 13px;
+  }
+  @media (max-width: 640px) {
+    header.hero { padding: 40px 20px; }
+    header.hero h1 { font-size: 32px; }
+    main { padding: 32px 20px 64px; }
+    dl.glossary { grid-template-columns: 1fr; }
+    dl.glossary dt { margin-top: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Kainos Americas · Pre-Sales Enablement</div>
+    <h1>Welcome to the team.</h1>
+    <p>Kainos is a Workday-only implementation partner. This guide is your map to how we win work — what lives where, which assets matter for which deal, and how a typical pursuit moves from first call to signed order form.</p>
+  </div>
+</header>
+
+<nav class="top">
+  <div class="wrap">
+    <a href="#start-here">Start Here</a>
+    <a href="#first-30">First 30 Days</a>
+    <a href="#repo-00">00 Governance</a>
+    <a href="#repo-01">01 Methodology</a>
+    <a href="#repo-02">02 Templates</a>
+    <a href="#repo-03">03 Estimation</a>
+    <a href="#repo-04">04 RFP &amp; Reusable</a>
+    <a href="#repo-05">05 Enablement</a>
+    <a href="#repo-06">06 Competitive</a>
+    <a href="#repo-07">07 Pipeline</a>
+    <a href="#repo-08">08 Sales SOPs</a>
+    <a href="#glossary">Glossary</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="start-here">
+  <h2><span class="num">A.</span>Start Here</h2>
+  <p class="lede">The Pre-Sales repository on SharePoint is the single source of truth for how Kainos Americas pursues Workday opportunities. This page summarises what's in it. The actual files live in SharePoint — once you have access, the folder names here match one-to-one.</p>
+
+  <div class="callout">
+    <strong>How to read this guide.</strong> Every section maps to a numbered top-level folder. Each card inside a section tells you <em>what the asset is</em>, <em>when you'd reach for it</em>, and whether it's <span class="pill client-safe">Client Safe</span> or <span class="pill internal">Internal Only</span>.
+  </div>
+
+  <h3>How we talk about ourselves</h3>
+  <p>Kainos voice is <strong>honest, humble, familial, ambitious, confident</strong>. We say "partnership" not "engagement", "accelerator" not "tool". We avoid synergy, leverage-as-a-verb, best-in-class, world-class. We reference the client by name. Active voice — "Kainos delivers", not "is delivered by Kainos".</p>
+
+  <h3>Two rules you cannot break</h3>
+  <div class="grid">
+    <div class="card orange">
+      <div class="meta">Pricing Guardrail</div>
+      <h4>Investment, not cost</h4>
+      <p>No hourly rates, no role-by-role hour breakdowns, no DB field names in any client-facing document. Phase totals must sum to overall. Round client-facing totals to nearest $5,000.</p>
+    </div>
+    <div class="card orange">
+      <div class="meta">Client Data</div>
+      <h4>Never cross-pollinate</h4>
+      <p>One client's data never appears in another client's deliverable. Comparable deals are anonymised — "a similar healthcare implementation", never the name. Case studies are the only pre-approved public references.</p>
+    </div>
+  </div>
+</section>
+
+<section id="first-30">
+  <h2><span class="num">B.</span>Your First 30 Days</h2>
+  <p class="lede">A suggested path. Adjust with your manager — but in this order you'll build context before you're asked to produce anything client-facing.</p>
+  <ol class="path">
+    <li><strong>Week 1 — Read the methodology.</strong> Start in 01_Methodology and Playbooks. Read the Launch methodology language doc and the six Non-Standard Implementation components. This is how we think about deals.</li>
+    <li><strong>Week 1 — Shadow two discovery calls.</strong> Ask your manager which active pursuits are at discovery stage and listen in. Read the Discovery Questionnaire in 03_Estimation/1-Discovery before the call.</li>
+    <li><strong>Week 2 — Walk the estimation models.</strong> Open the Workday Functional Uplifts Catalog, the Integrations Catalog, and the AC Prism Estimation Framework in 03_Estimation. Understand the inputs that drive a ROM.</li>
+    <li><strong>Week 2 — Read three case studies.</strong> Pick three from 04_RFP/Case Studies that match industries you'll likely cover. Notice how outcomes are written.</li>
+    <li><strong>Week 3 — Read the SOPs.</strong> 05_Enablement &amp; Training has both the traditional and AI-integrated Pre-Sales SOPs plus three deep-dives (ROM, Integration Scoping, Scope Doc Generation).</li>
+    <li><strong>Week 3 — Sit in on a deal review.</strong> See how qualification, pricing, and margin land before anything goes to a client. Reference: Qualification Framework in 08_Sales Process and SOPs.</li>
+    <li><strong>Week 4 — Run a ROM yourself.</strong> Pick a closed-lost or sandbox deal with your manager and try the estimation workflow end-to-end. Get it reviewed before assuming it's right.</li>
+  </ol>
+</section>
+
+<section id="repo-00">
+  <h2><span class="num">00.</span>Governance</h2>
+  <p class="lede">How we decide what to pursue at a portfolio level. Read this to understand the strategic shape of the Americas business, not to answer a specific RFP question.</p>
+  <div class="grid">
+    <div class="card blue">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>FY27 Deployment Strategy</h4>
+      <p>Roadmap and framework documents outlining the deployment strategy for FY27. Useful for context on where the business is investing and what types of deals are prioritised.</p>
+    </div>
+  </div>
+</section>
+
+<section id="repo-01">
+  <h2><span class="num">01.</span>Methodology &amp; Playbooks</h2>
+  <p class="lede">How Kainos delivers Workday. The Launch methodology is the spine of every net-new deployment. The Non-Standard library is what we reach for when a deal isn't net-new.</p>
+
+  <h3>Launch (Net-New Deployments)</h3>
+  <div class="grid">
+    <div class="card">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Methodology Language Updates v7.1</h4>
+      <p>Current approved language describing the Launch methodology — phases, deliverables, governance. Source of truth for any proposal section that describes <em>how</em> we'll implement.</p>
+    </div>
+  </div>
+
+  <h3>Non-Standard Implementations</h3>
+  <p>Six components covering deals where a client already has a live Workday tenant. Every non-net-new opportunity routes through this framework before estimation begins.</p>
+  <table>
+    <thead><tr><th>Component</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td>1 — Intake &amp; Routing</td><td>Decision tree that classifies a non-standard opportunity into one of five patterns (Consolidation, Divestiture, Global Expansion, Complex Module Add-On, Contained Module Add-On).</td></tr>
+      <tr><td>2 — Estimation Model</td><td>How we size each pattern. Inputs, ranges, and the math behind the ROM.</td></tr>
+      <tr><td>3 — Scope Language Library</td><td>Reusable scope statements per pattern — drop into proposals and SOWs.</td></tr>
+      <tr><td>4 — Deal Review Checklist</td><td>The gate before any non-standard deal goes to a client. Use it before commercial review.</td></tr>
+      <tr><td>5 — S2S Handoff Package</td><td>What Sales hands to Service at deal close so delivery starts with full context.</td></tr>
+      <tr><td>6 — EY Channel Operating Model</td><td>How deals sourced through the EY partnership flow through pre-sales.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="repo-02">
+  <h2><span class="num">02.</span>Templates, Scope Language &amp; Checklists</h2>
+  <p class="lede">Document templates and reusable scope content. When you're producing a client deliverable, start here before you start a blank doc.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="meta"><span class="pill client-safe">Client Safe</span></div>
+      <h4>Launch Kainos Branded Templates</h4>
+      <p>The branded Launch proposal templates — separate HCM-only, FINs-only, and combined HCM+FINs versions. Start here for net-new proposals.</p>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="pill client-safe">Client Safe</span></div>
+      <h4>Sales Pitch Decks</h4>
+      <p>Kainos Americas draft sales pitch deck and the OCM (Organisational Change Management) sales slides.</p>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Functional Pillar Content</h4>
+      <p>Per-pillar reference content (e.g. Evisort). Used to brief on a specific capability area.</p>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Sales to Service Template</h4>
+      <p>The S2S handoff template (.potx). Filled in at close to transition the deal to the delivery team — past completed packs live in the Past sub-folder for reference.</p>
+    </div>
+  </div>
+</section>
+
+<section id="repo-03">
+  <h2><span class="num">03.</span>Estimation &amp; Reference Data</h2>
+  <p class="lede">The numbers behind every ROM. This is the most data-heavy folder in the repo — and the one you'll touch most often.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="meta">1 — Discovery</div>
+      <h4>Discovery Questionnaire</h4>
+      <p>Standard questions to run at first qualification. Drives what estimation inputs you'll need.</p>
+    </div>
+    <div class="card">
+      <div class="meta">2 — Functional</div>
+      <h4>Functional Uplifts Catalog &amp; Prism/AC Framework</h4>
+      <p>Catalog of functional scope items with associated uplift logic. Plus the Prism/Adaptive (analytics) estimation framework and call notes that explain how it was built.</p>
+    </div>
+    <div class="card">
+      <div class="meta">3 — Integrations</div>
+      <h4>Integrations Catalog &amp; LE/LEX Templates</h4>
+      <p>Integration items priced and sized at the standard tier. Use the catalog for any integration count and complexity question.</p>
+    </div>
+    <div class="card">
+      <div class="meta">4 — AI &amp; Prompts</div>
+      <h4>Claude Skills (Brand &amp; Estimation)</h4>
+      <p>The reusable AI skills that power proposal drafting and estimation workflows. The kainos-brand-skill keeps language compliant; the kainos-estimation-skill drives the ROM math.</p>
+    </div>
+    <div class="card">
+      <div class="meta">5 — WDYW Examples</div>
+      <h4>Resource Plan / Revenue Forecast samples</h4>
+      <p>Worked examples of "Workday Done Your Way" (WDYW) — non-Launch sizing. Use as a reference shape only; never reuse another client's numbers.</p>
+    </div>
+    <div class="card">
+      <div class="meta">6 — kbids</div>
+      <h4>kbids working folder</h4>
+      <p>Placeholder for in-flight bid working files. Treat anything here as internal-only.</p>
+    </div>
+    <div class="card blue">
+      <div class="meta">Project EDGE</div>
+      <h4>Architectural strategy &amp; phase roadmap</h4>
+      <p>Project EDGE is the internal pricing and estimation platform. Decks in this folder cover the architecture, the stakeholder intro, and the phase roadmap (v1.7). Read these to understand where estimation is heading.</p>
+    </div>
+  </div>
+</section>
+
+<section id="repo-04">
+  <h2><span class="num">04.</span>RFP &amp; Reusable Collateral</h2>
+  <p class="lede">Pre-approved content you can lift into client deliverables. Case studies are the only pre-approved public references — use them.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="meta"><span class="pill client-safe">Client Safe</span></div>
+      <h4>Case Studies</h4>
+      <p>~20 written case studies and a Datasheets pack covering banking, healthcare, public sector, manufacturing, divestitures, and tenant consolidations. Cite by client name — these are pre-approved.</p>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="pill client-safe">Client Safe</span></div>
+      <h4>Industry Decks &amp; Guides</h4>
+      <p>FSI-specific FDM &amp; ACC use-cases, the Industry Accounting playbook deck, and the Industry Accounting reference guide.</p>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Country Content &amp; Localization</h4>
+      <p>Country-localization playbook and a Workday localization reference. Country estimation content is marked Do-Not-Use until validated — confirm with your manager before sourcing from it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="repo-05">
+  <h2><span class="num">05.</span>Enablement &amp; Training</h2>
+  <p class="lede">This page lives here. So do the operating SOPs.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="meta"><span class="pill wip">WIP</span></div>
+      <h4>Pre-Sales SOP — Traditional</h4>
+      <p>End-to-end pre-sales workflow without AI in the loop. Read this first to understand the underlying process.</p>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="pill wip">WIP</span></div>
+      <h4>Pre-Sales SOP — AI-Integrated</h4>
+      <p>The same workflow with Claude Skills, Project EDGE, and other accelerators threaded through. This is the target state.</p>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="pill wip">WIP</span></div>
+      <h4>SOP — ROM Estimation</h4>
+      <p>Step-by-step for producing a defensible Rough Order of Magnitude estimate.</p>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="pill wip">WIP</span></div>
+      <h4>SOP — Integration Scoping</h4>
+      <p>How to scope integrations consistently against the Integrations Catalog.</p>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="pill wip">WIP</span></div>
+      <h4>SOP — Scope Document Generation</h4>
+      <p>How to produce a scope document the delivery team will accept at S2S.</p>
+    </div>
+  </div>
+</section>
+
+<section id="repo-06">
+  <h2><span class="num">06.</span>Competitive Intel</h2>
+  <p class="lede">Folder exists, content is being populated. Battlecards and competitive positioning against Deloitte, Collaborative Solutions, IBM, Accenture, and other Workday SI partners will land here.</p>
+  <div class="callout">
+    <strong>Coming soon.</strong> If you have notes from a competitive deal, share them with your manager so they can be added.
+  </div>
+</section>
+
+<section id="repo-07">
+  <h2><span class="num">07.</span>Pipeline &amp; Deal Analysis</h2>
+  <p class="lede">What's in the pipeline and what we've learned from it.</p>
+  <div class="grid">
+    <div class="card blue">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>FY26–27 Net-New Pipeline Analysis</h4>
+      <p>Workbook covering the current Americas net-new pipeline. Use for context on deal volume, win rates, and patterns — never lift specific deal data into another client's document.</p>
+    </div>
+  </div>
+</section>
+
+<section id="repo-08">
+  <h2><span class="num">08.</span>Sales Process &amp; SOPs</h2>
+  <p class="lede">How sales runs alongside pre-sales. Process decks and the Claude Skills library that automates parts of it.</p>
+  <div class="grid">
+    <div class="card blue">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Qualification Framework</h4>
+      <p>How we decide whether to pursue. Reference before any go/no-go on an RFP or unsolicited intake.</p>
+    </div>
+    <div class="card blue">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Sales Process</h4>
+      <p>End-to-end sales workflow deck — stages, gates, who owns what.</p>
+    </div>
+    <div class="card blue">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Pricing &amp; Estimation Strategy</h4>
+      <p>Strategy deck on how pricing and estimation are evolving in the Americas.</p>
+    </div>
+    <div class="card blue">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Project EDGE 2.0 Pipeline Architecture</h4>
+      <p>Technical architecture for the pipeline that ingests intake and produces estimation / commercial / proposal outputs.</p>
+    </div>
+    <div class="card blue">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Power Automate Intake Process</h4>
+      <p>How inbound deal intake is automated via Power Automate.</p>
+    </div>
+    <div class="card blue">
+      <div class="meta"><span class="pill internal">Internal</span></div>
+      <h4>Data Platform &amp; KDT</h4>
+      <p>Overview of the Kainos Data Toolkit and the underlying data platform that supports analytics work.</p>
+    </div>
+    <div class="card">
+      <div class="meta">Claude Skills</div>
+      <h4>Reusable AI skills</h4>
+      <p>Packaged skills used across pre-sales: brand, integration landscape, pricing dashboard, resource heatmap, sales-to-service, scope document, timeline (v1 and v2), and the setup guide PDF.</p>
+    </div>
+  </div>
+</section>
+
+<section id="glossary">
+  <h2><span class="num">C.</span>Glossary</h2>
+  <p class="lede">Acronyms and shorthand that come up in every conversation.</p>
+  <dl class="glossary">
+    <dt>Launch</dt><dd>Kainos's productised methodology for net-new Workday deployments. "Launch Flex" and "Launch Express" are sizing variants.</dd>
+    <dt>WDYW</dt><dd>Workday Done Your Way — non-Launch, custom-shaped engagements (typically for clients with an existing live tenant).</dd>
+    <dt>ROM</dt><dd>Rough Order of Magnitude estimate. The first defensible sizing of a deal.</dd>
+    <dt>S2S</dt><dd>Sales to Service. The handoff package and ceremony where a closed deal transitions from pre-sales to delivery.</dd>
+    <dt>FDM</dt><dd>Financial Data Model — the foundational data structure in Workday Financials.</dd>
+    <dt>ACC</dt><dd>Accounting Center.</dd>
+    <dt>Prism / AC</dt><dd>Workday Prism Analytics / Accounting Center — analytics and finance-extension capability areas with their own estimation framework.</dd>
+    <dt>OCM</dt><dd>Organisational Change Management.</dd>
+    <dt>LE / LEX</dt><dd>Launch Express templates used for integration scoping.</dd>
+    <dt>EDGE</dt><dd>Internal Kainos platform for pricing, estimation, and proposal automation.</dd>
+    <dt>KDT</dt><dd>Kainos Data Toolkit.</dd>
+    <dt>kbids</dt><dd>In-flight bid working files / folder.</dd>
+  </dl>
+</section>
+
+<section id="contribute">
+  <h2><span class="num">D.</span>Contributing to this Guide</h2>
+  <p class="lede">This is meant to grow. When you spot something missing, wrong, or out of date, flag it.</p>
+  <ul>
+    <li>New section? Add it to the top navigation and as a numbered section so it lines up with the SharePoint folder structure.</li>
+    <li>Found a better explanation? Edit in place — keep cards short (one sentence of "what", one of "when you'd use it").</li>
+    <li>Brand check before merge: voice, colours, language. Reference the brand rules at the top of this page.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  Kainos Americas Pre-Sales · Onboarding Guide · Last updated 2026-05-20 · Source-of-truth files live in SharePoint
+</footer>
+
+</body>
+</html>
